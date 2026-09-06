@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/zlJosh/k8s-home-cluster.git' # <-- Hier dein Repo eintragen
+    repoURL: 'https://github.com/zlJosh/k8s-home-cluster.git'
     targetRevision: HEAD
     path: deployments/nginx
   destination:
