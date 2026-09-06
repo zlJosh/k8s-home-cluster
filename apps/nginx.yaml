@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-test
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/DEIN-GITHUB-USERNAME/k8s-home-cluster.git' # <-- Hier dein Repo eintragen
+    targetRevision: HEAD
+    path: deployments/nginx
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: test-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
